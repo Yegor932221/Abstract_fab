@@ -1,30 +1,30 @@
 #ifndef GENERATEPROGRAM_H
 #define GENERATEPROGRAM_H
 
-#include<MethodUnit.h>
-#include<PrintOperatorUnit.h>
-#include<classunit.h>
+#include<CPlusPlusMethodUnit.h>
+#include<CPlusPlusPrintOperatorUnit.h>
+#include<CPlusPlusClassUnit.h>
 #include <QSharedPointer>
 #include"QString"
 
 QString generateProgram() {
-    ClassUnit myClass( "MyClass" );
+    CPlusPlusClassUnit myClass( "MyClass" );
     myClass.add(
         QSharedPointer< MethodUnit >::create( "testFunc1", "void", 0 ),
-        ClassUnit::PUBLIC
+        CPlusPlusClassUnit::PUBLIC
         );
     myClass.add(
         QSharedPointer< MethodUnit >::create( "testFunc2", "void", MethodUnit::STATIC ),
-        ClassUnit::PRIVATE
+        CPlusPlusClassUnit::PRIVATE
         );
     myClass.add(
         QSharedPointer< MethodUnit >::create( "testFunc3", "void", MethodUnit::VIRTUAL |
                                                               MethodUnit::CONST ),
-        ClassUnit::PUBLIC
+        CPlusPlusClassUnit::PUBLIC
         );
     auto method = QSharedPointer< MethodUnit >::create( "testFunc4", "void", MethodUnit::STATIC );
     method->add( QSharedPointer< PrintOperatorUnit >::create( R"(Hello, world!\n)" ) );
-    myClass.add( method, ClassUnit::PROTECTED );
+    myClass.add( method, CPlusPlusClassUnit::PROTECTED );
     return myClass.compile();
 }
 

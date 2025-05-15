@@ -9,14 +9,30 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    CPlusPlus/CPlusPlusClassUnit.cpp \
+    CPlusPlus/CPlusPlusMethodUnit.cpp \
+    CPlusPlus/CPlusPlusOperatorUnit.cpp \
+    CPlusPlusClassUnit.cpp \
+    CPlusPlusMethodUnit.cpp \
+    CPlusPlusOperatorUnit.cpp \
+    CSharp/CSharpMethodUnit.cpp \
+    CSharp/csharpclassunit.cpp \
+    CSharpMethodUnit.cpp \
+    csharpclassunit.cpp \
     main.cpp
 
 HEADERS += \
-    MethodUnit.h \
-    MyClass.h \
-    PrintOperatorUnit.h \
+    CPlusPlus/CPlusPlusClassUnit.h \
+    CPlusPlus/CPlusPlusMethodUnit.h \
+    CPlusPlus/CPlusPlusPrintOperatorUnit.h \
+    CPlusPlusClassUnit.h \
+    CPlusPlusMethodUnit.h \
+    CPlusPlusPrintOperatorUnit.h \
+    CSharp/CSharpMethodUnit.h \
+    CSharp/csharpclassunit.h \
+    CSharpMethodUnit.h \
     Unit.h \
-    classunit.h \
+    csharpclassunit.h \
     generateProgram.h
 
 FORMS +=
