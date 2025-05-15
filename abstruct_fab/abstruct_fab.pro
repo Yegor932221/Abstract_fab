@@ -16,8 +16,10 @@ SOURCES += \
     CPlusPlusMethodUnit.cpp \
     CPlusPlusOperatorUnit.cpp \
     CSharp/CSharpMethodUnit.cpp \
+    CSharp/CSharpPrintOperatorUnit.cpp \
     CSharp/csharpclassunit.cpp \
     CSharpMethodUnit.cpp \
+    CSharpPrintOperatorUnit.cpp \
     csharpclassunit.cpp \
     main.cpp
 
@@ -29,8 +31,10 @@ HEADERS += \
     CPlusPlusMethodUnit.h \
     CPlusPlusPrintOperatorUnit.h \
     CSharp/CSharpMethodUnit.h \
+    CSharp/CSharpPrintOperatorUnit.h \
     CSharp/csharpclassunit.h \
     CSharpMethodUnit.h \
+    CSharpPrintOperatorUnit.h \
     Unit.h \
     csharpclassunit.h \
     generateProgram.h

@@ -14,6 +14,8 @@ QString CSharpMethodUnit::compile( unsigned int level) const {
         result += "static ";
     } else if( m_flags & VIRTUAL ) {
         result += "virtual ";
+    } else if( m_flags & ABSTRACT ) {
+        result += "abstract ";
     }
     result += m_returnType + " ";
     result += m_name + "()";

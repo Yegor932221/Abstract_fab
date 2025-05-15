@@ -11,7 +11,8 @@ public:
     enum Modifier {
         STATIC = 1,
         CONST = 1 << 1,
-        VIRTUAL = 1 << 2
+        VIRTUAL = 1 << 2,
+        ABSTRACT=1 << 3
     };
 public:
     CSharpMethodUnit( const QString& name, const QString& returnType, Flags flags );
