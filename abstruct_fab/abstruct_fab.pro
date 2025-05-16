@@ -22,6 +22,7 @@ SOURCES += \
     CSharpPrintOperatorUnit.cpp \
     Java/JavaClassUnit.cpp \
     JavaClassUnit.cpp \
+    JavaMethodUnit.cpp \
     csharpclassunit.cpp \
     main.cpp
 
@@ -39,6 +40,7 @@ HEADERS += \
     CSharpPrintOperatorUnit.h \
     Java/JavaClassUnit.h \
     JavaClassUnit.h \
+    JavaMethodUnit.h \
     Unit.h \
     csharpclassunit.h \
     generateProgram.h

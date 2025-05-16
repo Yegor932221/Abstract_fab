@@ -14,7 +14,7 @@ public:
         PROTECTED,
         PRIVATE,
         PRIVATEPROTECTED,
-        File,
+        FILE,
         INTERNAL,
         PROTECTEDINTERNAL
     };

@@ -17,8 +17,7 @@ QString CSharpMethodUnit::compile( unsigned int level) const {
     } else if( m_flags & ABSTRACT ) {
         result += "abstract ";
     }
-    result += m_returnType + " ";
-    result += m_name + "()";
+    result += m_returnType + " "+ m_name + "()";
     if( m_flags & CONST ) {
         result += " const";
     }

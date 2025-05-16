@@ -1,21 +1,20 @@
-#ifndef CSHARPMETHODUNIT_H
-#define CSHARPMETHODUNIT_H
-
+#ifndef JAVAMETHODUNIT_H
+#define JAVAMETHODUNIT_H
 #include "unit.h"
 #include"QString"
 #include"QVector"
 #include <QSharedPointer>
 
-class CSharpMethodUnit : public Unit {
+class JavaMethodUnit:public Unit
+{
 public:
     enum Modifier {
         STATIC = 1,
-        CONST = 1 << 1,
-        VIRTUAL = 1 << 2,
-        ABSTRACT=1 << 3//кажется не нужно
+        FINAL = 1 << 1,
+        ABSTRACT=1 << 2
     };
 public:
-    CSharpMethodUnit( const QString& name, const QString& returnType, Flags flags );
+    JavaMethodUnit( const QString& name, const QString& returnType, Flags flags );
 
     void add( const QSharedPointer< Unit >& unit, Flags  flags  = 0 );
 
@@ -26,5 +25,4 @@ private:
     Flags m_flags;
     QVector< QSharedPointer< Unit > > m_body;
 };
-
-#endif // CSHARPMETHODUNIT_H
+#endif // JAVAMETHODUNIT_H
