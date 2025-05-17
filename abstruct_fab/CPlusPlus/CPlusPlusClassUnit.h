@@ -17,13 +17,14 @@ public:
     static const QVector< QString > ACCESS_MODIFIERS;
 
 public:
-    CPlusPlusClassUnit( const QString& name );
+    CPlusPlusClassUnit( const QString& name, Flags flags=PRIVATE );
     void add( const QSharedPointer< Unit >& unit, Flags flags );
     QString compile( unsigned int level = 0 ) const;
 private:
     QString m_name;
     using Fields = QVector< QSharedPointer< Unit > >;
     QVector<Fields> m_fields;
+    Flags m_modifier;
 };
 
 

@@ -29,3 +29,8 @@ QString JavaMethodUnit::compile( unsigned int level) const {
     result += generateShift( level ) + "}\n";
     return result;
 }
+
+bool JavaMethodUnit::isAbstract()
+{
+    return (m_flags & ABSTRACT);
+}

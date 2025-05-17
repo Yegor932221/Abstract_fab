@@ -1,4 +1,8 @@
 #include "JavaClassUnit.h"
+#include "JavaMethodUnit.h"
+
+const QVector< QString > JavaClassUnit::ACCESS_MODIFIERS = { "public", "protected", "private"};
+
 
 JavaClassUnit::JavaClassUnit( const QString& name, const Flags modifier) : m_name( name ), m_modifier(modifier)
 {
@@ -7,11 +11,19 @@ JavaClassUnit::JavaClassUnit( const QString& name, const Flags modifier) : m_nam
 
 void JavaClassUnit::add( const QSharedPointer< Unit >& unit, Flags flags )
 {
-    int accessModifier = FINAL;
+
+    if(auto method = qSharedPointerCast<JavaMethodUnit>(unit)) {
+        if(method->isAbstract()) {
+            m_modifier |= ABSTRACT;
+        }
+    }
+
+    int accessModifier = 3;
     if( flags < ACCESS_MODIFIERS.size() ) {
         accessModifier = flags;
     }
     m_fields[accessModifier].push_back(unit);
+
 }
 
 QString JavaClassUnit::compile( unsigned int level) const
@@ -25,8 +37,9 @@ QString JavaClassUnit::compile( unsigned int level) const
         result += "protected ";
     }
 
-    if(!m_fields[ 3 ].empty())//заместо i ввести поле абстракт
-         result += "abstruct ";
+
+    if(m_modifier& ABSTRACT)
+         result += "abstract ";
     else if( m_modifier & FINAL ) {
         result += "final ";
     }
