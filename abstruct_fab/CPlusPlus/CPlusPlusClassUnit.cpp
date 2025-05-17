@@ -1,4 +1,7 @@
 #include "CPlusPlusClassUnit.h"
+#include"QString"
+
+const QVector< QString > CPlusPlusClassUnit::ACCESS_MODIFIERS = { "public","protected", "private" };
 
 CPlusPlusClassUnit::CPlusPlusClassUnit( const QString& name ) : m_name( name )
 {

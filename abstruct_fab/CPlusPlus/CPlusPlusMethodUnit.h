@@ -17,7 +17,7 @@ public:
 
     void add( const QSharedPointer< Unit >& unit, Flags  flags  = 0 );
 
-    QString compile( unsigned int level = 0 );
+    QString compile( unsigned int level = 0 ) const;
 private:
     QString m_name;
     QString m_returnType;

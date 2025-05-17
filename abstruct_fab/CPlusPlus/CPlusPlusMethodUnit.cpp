@@ -1,4 +1,5 @@
 #include "CPlusPlusMethodUnit.h"
+#include"QString"
 
 CPlusPlusMethodUnit::CPlusPlusMethodUnit( const QString& name, const QString& returnType, Flags flags ) :
     m_name( name ), m_returnType( returnType ), m_flags( flags ) { }

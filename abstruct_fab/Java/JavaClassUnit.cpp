@@ -7,7 +7,7 @@ JavaClassUnit::JavaClassUnit( const QString& name, const Flags modifier) : m_nam
 
 void JavaClassUnit::add( const QSharedPointer< Unit >& unit, Flags flags )
 {
-    int accessModifier = INTERNAL;
+    int accessModifier = FINAL;
     if( flags < ACCESS_MODIFIERS.size() ) {
         accessModifier = flags;
     }
@@ -17,17 +17,17 @@ void JavaClassUnit::add( const QSharedPointer< Unit >& unit, Flags flags )
 QString JavaClassUnit::compile( unsigned int level) const
 {
     QString result = generateShift( level );
-    if( m_flags & PRIVATE ) {
+    if( m_modifier & PRIVATE ) {
         result += "private ";
-    } else if( m_flags & PUBLIC ) {
+    } else if( m_modifier & PUBLIC ) {
         result += "public ";
-    } else if( m_flags & PROTECTED ) {
+    } else if( m_modifier & PROTECTED ) {
         result += "protected ";
     }
 
-    if(!m_fields[ i ].empty())//заместо i ввести поле абстракт
+    if(!m_fields[ 3 ].empty())//заместо i ввести поле абстракт
          result += "abstruct ";
-    else if( m_flags & FINAL ) {
+    else if( m_modifier & FINAL ) {
         result += "final ";
     }
     result += "class " + m_name + " {\n";

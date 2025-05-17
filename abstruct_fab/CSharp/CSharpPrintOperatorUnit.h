@@ -1,8 +1,9 @@
 #ifndef CSHARPPRINTOPERATORUNIT_H
 #define CSHARPPRINTOPERATORUNIT_H
+#include "Unit.h"
+#include"QString"
 
-
-class CSharpPrintOperatorUnit
+class CSharpPrintOperatorUnit:public Unit
 {
 public:
     explicit CSharpPrintOperatorUnit( const QString& text );

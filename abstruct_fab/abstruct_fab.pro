@@ -12,44 +12,28 @@ SOURCES += \
     CPlusPlus/CPlusPlusClassUnit.cpp \
     CPlusPlus/CPlusPlusMethodUnit.cpp \
     CPlusPlus/CPlusPlusOperatorUnit.cpp \
-    CPlusPlusClassUnit.cpp \
-    CPlusPlusMethodUnit.cpp \
-    CPlusPlusOperatorUnit.cpp \
     CSharp/CSharpMethodUnit.cpp \
     CSharp/CSharpPrintOperatorUnit.cpp \
     CSharp/csharpclassunit.cpp \
-    CSharpMethodUnit.cpp \
-    CSharpPrintOperatorUnit.cpp \
     Java/JavaClassUnit.cpp \
-    JavaClassUnit.cpp \
-    JavaMethodUnit.cpp \
-    csharpclassunit.cpp \
+    Java/JavaMethodUnit.cpp \
+    Java/JavaPrintOperatorUnit.cpp \
     main.cpp
 
 HEADERS += \
     CPlusPlus/CPlusPlusClassUnit.h \
     CPlusPlus/CPlusPlusMethodUnit.h \
     CPlusPlus/CPlusPlusPrintOperatorUnit.h \
-    CPlusPlusClassUnit.h \
-    CPlusPlusMethodUnit.h \
-    CPlusPlusPrintOperatorUnit.h \
     CSharp/CSharpMethodUnit.h \
     CSharp/CSharpPrintOperatorUnit.h \
     CSharp/csharpclassunit.h \
-    CSharpMethodUnit.h \
-    CSharpPrintOperatorUnit.h \
     Java/JavaClassUnit.h \
-    JavaClassUnit.h \
-    JavaMethodUnit.h \
+    Java/JavaMethodUnit.h \
+    Java/JavaPrintOperatorUnit.h \
     Unit.h \
-    csharpclassunit.h \
     generateProgram.h
-
-FORMS +=
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-
-DISTFILES +=

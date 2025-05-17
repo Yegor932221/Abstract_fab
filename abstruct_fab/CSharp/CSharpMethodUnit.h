@@ -1,7 +1,7 @@
 #ifndef CSHARPMETHODUNIT_H
 #define CSHARPMETHODUNIT_H
 
-#include "unit.h"
+#include "Unit.h"
 #include"QString"
 #include"QVector"
 #include <QSharedPointer>
@@ -12,14 +12,14 @@ public:
         STATIC = 1,
         CONST = 1 << 1,
         VIRTUAL = 1 << 2,
-        ABSTRACT=1 << 3//кажется не нужно
+        ABSTRACT=1 << 3
     };
 public:
     CSharpMethodUnit( const QString& name, const QString& returnType, Flags flags );
 
     void add( const QSharedPointer< Unit >& unit, Flags  flags  = 0 );
 
-    QString compile( unsigned int level = 0 );
+    QString compile( unsigned int level = 0 ) const;
 private:
     QString m_name;
     QString m_returnType;

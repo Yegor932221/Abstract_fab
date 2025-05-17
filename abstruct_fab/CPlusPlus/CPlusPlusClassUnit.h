@@ -10,9 +10,9 @@ class CPlusPlusClassUnit: public Unit
 public:
     enum AccessModifier
     {
-        PUBLIC,
-        PROTECTED,
-        PRIVATE
+        PUBLIC=1,
+        PROTECTED=1<<1,
+        PRIVATE=1<<2
     };
     static const QVector< QString > ACCESS_MODIFIERS;
 
@@ -26,6 +26,6 @@ private:
     QVector<Fields> m_fields;
 };
 
-const QVector< QString > CPlusPlusClassUnit::ACCESS_MODIFIERS = { "public","protected", "private" };
+
 
 #endif // CPLUSPLUSCLASSUNIT_H

@@ -1,31 +1,82 @@
 #ifndef GENERATEPROGRAM_H
 #define GENERATEPROGRAM_H
 
-#include<CPlusPlusMethodUnit.h>
-#include<CPlusPlusPrintOperatorUnit.h>
-#include<CPlusPlusClassUnit.h>
 #include <QSharedPointer>
 #include"QString"
 
+#include "CPlusPlus/CPlusPlusClassUnit.h"
+#include "CPlusPlus/CPlusPlusMethodUnit.h"
+#include "CPlusPlus/CPlusPlusPrintOperatorUnit.h"
+
+#include "CSharp/CSharpClassUnit.h"
+#include "CSharp/CSharpMethodUnit.h"
+#include "CSharp/CSharpPrintOperatorUnit.h"
+
+#include "Java/JavaClassUnit.h"
+#include "Java/JavaMethodUnit.h"
+#include "Java/JavaPrintOperatorUnit.h"
+
 QString generateProgram() {
-    CPlusPlusClassUnit myClass( "MyClass" );
-    myClass.add(
-        QSharedPointer< MethodUnit >::create( "testFunc1", "void", 0 ),
+    QString result;
+    CPlusPlusClassUnit cPlusPlus( "MyClass" );
+    cPlusPlus.add(
+        QSharedPointer< CPlusPlusMethodUnit >::create( "testFunc1", "void", 0 ),
         CPlusPlusClassUnit::PUBLIC
         );
-    myClass.add(
-        QSharedPointer< MethodUnit >::create( "testFunc2", "void", MethodUnit::STATIC ),
+    cPlusPlus.add(
+        QSharedPointer< CPlusPlusMethodUnit >::create( "testFunc2", "void", CPlusPlusMethodUnit::STATIC ),
         CPlusPlusClassUnit::PRIVATE
         );
-    myClass.add(
-        QSharedPointer< MethodUnit >::create( "testFunc3", "void", MethodUnit::VIRTUAL |
-                                                              MethodUnit::CONST ),
+    cPlusPlus.add(
+        QSharedPointer< CPlusPlusMethodUnit >::create( "testFunc3", "void", CPlusPlusMethodUnit::VIRTUAL |
+                                                              CPlusPlusMethodUnit::CONST ),
         CPlusPlusClassUnit::PUBLIC
         );
-    auto method = QSharedPointer< MethodUnit >::create( "testFunc4", "void", MethodUnit::STATIC );
-    method->add( QSharedPointer< PrintOperatorUnit >::create( R"(Hello, world!\n)" ) );
-    myClass.add( method, CPlusPlusClassUnit::PROTECTED );
-    return myClass.compile();
+    auto methodCPlusPlus = QSharedPointer< CPlusPlusMethodUnit >::create( "testFunc4", "void", CPlusPlusMethodUnit::STATIC );
+    methodCPlusPlus->add( QSharedPointer< CPlusPlusPrintOperatorUnit >::create( R"(Hello, world!\n)" ) );
+    cPlusPlus.add( methodCPlusPlus, CPlusPlusClassUnit::PROTECTED );
+    result+=cPlusPlus.compile();
+    result+="\n=========================\n";
+
+    CSharpClassUnit cSharp( "MyClass" );
+    cSharp.add(
+        QSharedPointer< CSharpMethodUnit >::create( "testFunc1", "void", 0 ),
+        CPlusPlusClassUnit::PUBLIC
+        );
+    cSharp.add(
+        QSharedPointer< CSharpMethodUnit >::create( "testFunc2", "void", CSharpMethodUnit::STATIC ),
+        CPlusPlusClassUnit::PRIVATE
+        );
+    cSharp.add(
+        QSharedPointer< CSharpMethodUnit >::create( "testFunc3", "void", CSharpMethodUnit::VIRTUAL |
+                                                                             CSharpMethodUnit::CONST ),
+        CPlusPlusClassUnit::PUBLIC
+        );
+    auto methodCSharp = QSharedPointer< CSharpMethodUnit >::create( "testFunc4", "void", CSharpMethodUnit::STATIC );
+    methodCSharp->add( QSharedPointer< CSharpPrintOperatorUnit >::create( R"(Hello, world!\n)" ) );
+    cSharp.add( methodCSharp, CSharpClassUnit::PROTECTED );
+    result+= cSharp.compile();
+    result+="\n=========================\n";
+
+    JavaClassUnit java( "MyClass" );
+    cSharp.add(
+        QSharedPointer< JavaMethodUnit >::create( "testFunc1", "void", 0 ),
+        CPlusPlusClassUnit::PUBLIC
+        );
+    cSharp.add(
+        QSharedPointer< JavaMethodUnit >::create( "testFunc2", "void", JavaMethodUnit::STATIC ),
+        CPlusPlusClassUnit::PRIVATE
+        );
+    cSharp.add(
+        QSharedPointer< JavaMethodUnit >::create( "testFunc3", "void", JavaMethodUnit::VIRTUAL |
+                                                                          JavaMethodUnit::CONST ),
+        CPlusPlusClassUnit::PUBLIC
+        );
+    auto methodJava = QSharedPointer< JavaMethodUnit >::create( "testFunc4", "void", JavaMethodUnit::STATIC );
+    methodJava->add( QSharedPointer< JavaPrintOperatorUnit >::create( R"(Hello, world!\n)" ) );
+    cSharp.add( methodJava, JavaClassUnit::PROTECTED );
+    result+= java.compile();
+    return result;
 }
 
 #endif // GENERATEPROGRAM_H

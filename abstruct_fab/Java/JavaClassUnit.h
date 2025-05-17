@@ -10,15 +10,15 @@ class JavaClassUnit:public Unit
 public:
     enum AccessModifier
     {
-        PUBLIC,
-        PROTECTED,
-        PRIVATE,
-        FINAL
+        PUBLIC=1,
+        PROTECTED=1<<1,
+        PRIVATE=1<<2,
+        FINAL=1<<3
     };
     static const QVector< QString > ACCESS_MODIFIERS;
 
 public:
-    JavaClassUnit( const QString& name, const Flags modifier );
+    JavaClassUnit( const QString& name, const Flags modifier=0 );
     void add( const QSharedPointer< Unit >& unit, Flags flags );
     QString compile( unsigned int level = 0 ) const;
 private:
@@ -28,7 +28,7 @@ private:
     Flags m_modifier;
 };
 
-const QVector< QString > CPlusPlusClassUnit::ACCESS_MODIFIERS = { "public","protected", "private" };
+const QVector< QString > JavaClassUnit::ACCESS_MODIFIERS = { "public","protected", "private", "abstruct" };
 
 
 #endif // JAVACLASSUNIT_H
