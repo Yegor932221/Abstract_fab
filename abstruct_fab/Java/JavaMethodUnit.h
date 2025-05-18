@@ -1,9 +1,7 @@
 #ifndef JAVAMETHODUNIT_H
 #define JAVAMETHODUNIT_H
 #include "unit.h"
-#include"QString"
 #include"QVector"
-#include <QSharedPointer>
 
 class JavaMethodUnit: public Unit
 {

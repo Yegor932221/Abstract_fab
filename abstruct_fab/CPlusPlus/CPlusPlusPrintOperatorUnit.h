@@ -1,7 +1,6 @@
 #ifndef CPLUSPLUSPRINTOPERATORUNIT_H
 #define CPLUSPLUSPRINTOPERATORUNIT_H
 #include "unit.h"
-#include"QString"
 
 class CPlusPlusPrintOperatorUnit : public Unit {
 public:

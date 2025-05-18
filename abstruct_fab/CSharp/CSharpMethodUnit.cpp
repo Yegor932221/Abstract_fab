@@ -4,7 +4,7 @@
 CSharpMethodUnit::CSharpMethodUnit( const QString& name, const QString& returnType, Flags flags ) :
     m_name( name ), m_returnType( returnType ), m_flags( flags ) { }
 
-void CSharpMethodUnit::add( const QSharedPointer< Unit >& unit, Flags  flags )
+void CSharpMethodUnit::add( const QSharedPointer< Unit >& unit)
 {
     m_body.push_back( unit );
 }

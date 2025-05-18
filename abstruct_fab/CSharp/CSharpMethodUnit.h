@@ -2,9 +2,7 @@
 #define CSHARPMETHODUNIT_H
 
 #include "Unit.h"
-#include"QString"
 #include"QVector"
-#include <QSharedPointer>
 
 class CSharpMethodUnit : public Unit {
 public:
@@ -17,7 +15,7 @@ public:
 public:
     CSharpMethodUnit( const QString& name, const QString& returnType, Flags flags );
 
-    void add( const QSharedPointer< Unit >& unit, Flags  flags  = 0 );
+    void add( const QSharedPointer< Unit >& unit);
 
     QString compile( unsigned int level = 0 ) const;
 private:

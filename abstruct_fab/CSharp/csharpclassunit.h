@@ -1,9 +1,7 @@
 #ifndef CSHARPCLASSUNIT_H
 #define CSHARPCLASSUNIT_H
 #include "unit.h"
-#include"QString"
 #include"QVector"
-#include <QSharedPointer>
 
 class CSharpClassUnit:public Unit
 {

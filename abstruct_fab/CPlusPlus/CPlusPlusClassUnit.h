@@ -1,9 +1,7 @@
 #ifndef CPLUSPLUSCLASSUNIT_H
 #define CPLUSPLUSCLASSUNIT_H
 #include "unit.h"
-#include"QString"
 #include"QVector"
-#include <QSharedPointer>
 
 class CPlusPlusClassUnit: public Unit
 {

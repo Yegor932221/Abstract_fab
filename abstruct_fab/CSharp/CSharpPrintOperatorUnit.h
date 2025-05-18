@@ -1,7 +1,6 @@
 #ifndef CSHARPPRINTOPERATORUNIT_H
 #define CSHARPPRINTOPERATORUNIT_H
-#include "Unit.h"
-#include"QString"
+#include "unit.h"
 
 class CSharpPrintOperatorUnit:public Unit
 {

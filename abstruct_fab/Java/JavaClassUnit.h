@@ -1,9 +1,7 @@
 #ifndef JAVACLASSUNIT_H
 #define JAVACLASSUNIT_H
 #include "unit.h"
-#include"QString"
 #include"QVector"
-#include <QSharedPointer>
 
 class JavaClassUnit:public Unit
 {

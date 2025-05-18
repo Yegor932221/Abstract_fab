@@ -1,7 +1,6 @@
 #ifndef JAVAPRINTOPERATORUNIT_H
 #define JAVAPRINTOPERATORUNIT_H
 #include "unit.h"
-#include"QString"
 
 class JavaPrintOperatorUnit:public Unit
 {

@@ -1,9 +1,7 @@
 #ifndef CPLUSPLUSMETHODUNIT_H
 #define CPLUSPLUSMETHODUNIT_H
 #include "unit.h"
-#include"QString"
 #include"QVector"
-#include <QSharedPointer>
 
 class CPlusPlusMethodUnit : public Unit {
 public:
@@ -15,7 +13,7 @@ public:
 public:
     CPlusPlusMethodUnit( const QString& name, const QString& returnType, Flags flags );
 
-    void add( const QSharedPointer< Unit >& unit, Flags  flags  = 0 );
+    void add( const QSharedPointer< Unit >& unit);
 
     QString compile( unsigned int level = 0 ) const;
 private:
