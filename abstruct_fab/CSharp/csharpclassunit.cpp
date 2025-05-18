@@ -1,4 +1,5 @@
 #include "csharpclassunit.h"
+#include <cmath>
 
 const QVector< QString > CSharpClassUnit::ACCESS_MODIFIERS = { "public","protected", "private","private protected","file",
                                                             "interal","protected interal" };
@@ -11,10 +12,10 @@ CSharpClassUnit::CSharpClassUnit( const QString& name, Flags flags) : m_name( na
 void CSharpClassUnit::add( const QSharedPointer< Unit >& unit, Flags flags )
 {
     int accessModifier = PRIVATE;
-    if( flags < ACCESS_MODIFIERS.size() ) {
+    if( std::log2(flags) < ACCESS_MODIFIERS.size() ) {
         accessModifier = flags;
     }
-    m_fields[accessModifier].push_back(unit);
+    m_fields[std::log2(accessModifier)].push_back(unit);
 }
 
 QString CSharpClassUnit::compile( unsigned int level) const

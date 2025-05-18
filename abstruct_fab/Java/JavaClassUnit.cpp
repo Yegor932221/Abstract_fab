@@ -1,7 +1,8 @@
 #include "JavaClassUnit.h"
 #include "JavaMethodUnit.h"
+#include <cmath>
 
-const QVector< QString > JavaClassUnit::ACCESS_MODIFIERS = { "public", "protected", "private"};
+const QVector< QString > JavaClassUnit::ACCESS_MODIFIERS = { "public", "protected", "private", "final"};
 
 
 JavaClassUnit::JavaClassUnit( const QString& name, const Flags modifier) : m_name( name ), m_modifier(modifier)
@@ -11,18 +12,17 @@ JavaClassUnit::JavaClassUnit( const QString& name, const Flags modifier) : m_nam
 
 void JavaClassUnit::add( const QSharedPointer< Unit >& unit, Flags flags )
 {
-
     if(auto method = qSharedPointerCast<JavaMethodUnit>(unit)) {
         if(method->isAbstract()) {
             m_modifier |= ABSTRACT;
         }
     }
 
-    int accessModifier = 3;
+    int accessModifier = PRIVATE;
     if( flags < ACCESS_MODIFIERS.size() ) {
         accessModifier = flags;
     }
-    m_fields[accessModifier].push_back(unit);
+    m_fields[std::log2(accessModifier)].push_back(unit);
 
 }
 

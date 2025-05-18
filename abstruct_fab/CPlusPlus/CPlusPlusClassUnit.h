@@ -12,7 +12,7 @@ public:
     {
         PUBLIC=1,
         PROTECTED=1<<1,
-        PRIVATE=1<<2
+        PRIVATE=1<<2,
     };
     static const QVector< QString > ACCESS_MODIFIERS;
 

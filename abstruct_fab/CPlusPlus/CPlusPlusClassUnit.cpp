@@ -1,5 +1,5 @@
 #include "CPlusPlusClassUnit.h"
-#include"QString"
+#include <cmath>
 
 const QVector< QString > CPlusPlusClassUnit::ACCESS_MODIFIERS = { "public","protected", "private" };
 
@@ -14,7 +14,7 @@ void CPlusPlusClassUnit::add( const QSharedPointer< Unit >& unit, Flags flags )
     if( flags < ACCESS_MODIFIERS.size() ) {
         accessModifier = flags;
     }
-    m_fields[accessModifier].push_back(unit);
+    m_fields[std::log2(accessModifier)].push_back(unit);
 }
 
 QString CPlusPlusClassUnit::compile( unsigned int level) const

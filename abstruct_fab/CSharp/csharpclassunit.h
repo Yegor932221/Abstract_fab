@@ -10,13 +10,13 @@ class CSharpClassUnit:public Unit
 public:
     enum AccessModifier
     {
-        PUBLIC,
-        PROTECTED,
-        PRIVATE,
-        PRIVATEPROTECTED,
-        FILE,
-        INTERNAL,
-        PROTECTEDINTERNAL
+        PUBLIC=1,
+        PROTECTED=1<<1,
+        PRIVATE=1<<2,
+        PRIVATEPROTECTED=1<<3,
+        FILE=1<<4,
+        INTERNAL=1<<5,
+        PROTECTEDINTERNAL=1<<6,
     };
     static const QVector< QString > ACCESS_MODIFIERS;
 

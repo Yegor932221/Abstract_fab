@@ -18,7 +18,7 @@
 
 QString generateProgram() {
     QString result;
-    CPlusPlusClassUnit cPlusPlus( "MyClass", CPlusPlusClassUnit::PUBLIC);
+    CPlusPlusClassUnit cPlusPlus( "CPlusPlus", CPlusPlusClassUnit::PUBLIC);
     cPlusPlus.add(
         QSharedPointer< CPlusPlusMethodUnit >::create( "testFunc1", "void", 0 ),
         CPlusPlusClassUnit::PUBLIC
@@ -38,7 +38,7 @@ QString generateProgram() {
     result+=cPlusPlus.compile();
     result+="\n=========================\n";
 
-    CSharpClassUnit cSharp( "MyClass",CSharpClassUnit::INTERNAL );
+    CSharpClassUnit cSharp( "CSharp",CSharpClassUnit::INTERNAL );
     cSharp.add(
         QSharedPointer< CSharpMethodUnit >::create( "testFunc1", "void", 0 ),
         CSharpClassUnit::PUBLIC
@@ -50,7 +50,7 @@ QString generateProgram() {
     cSharp.add(
         QSharedPointer< CSharpMethodUnit >::create( "testFunc3", "void", CSharpMethodUnit::VIRTUAL |
                                                                              CSharpMethodUnit::CONST ),
-        CSharpClassUnit::PUBLIC
+        CSharpClassUnit::FILE
         );
     auto methodCSharp = QSharedPointer< CSharpMethodUnit >::create( "testFunc4", "void", CSharpMethodUnit::STATIC );
     methodCSharp->add( QSharedPointer< CSharpPrintOperatorUnit >::create( R"(Hello, world!\n)" ) );
@@ -58,23 +58,23 @@ QString generateProgram() {
     result+= cSharp.compile();
     result+="\n=========================\n";
 
-    JavaClassUnit java( "MyClass" );
-    cSharp.add(
+    JavaClassUnit java( "Java", JavaClassUnit::PROTECTED );
+    java.add(
         QSharedPointer< JavaMethodUnit >::create( "testFunc1", "void", 0 ),
         JavaClassUnit::PUBLIC
         );
-    cSharp.add(
-        QSharedPointer< JavaMethodUnit >::create( "testFunc2", "void", JavaMethodUnit::STATIC ),
+    java.add(
+        QSharedPointer< JavaMethodUnit >::create( "testFunc2", "void", JavaMethodUnit::ABSTRACT ),
         JavaClassUnit::PRIVATE
         );
-    cSharp.add(
+    java.add(
         QSharedPointer< JavaMethodUnit >::create( "testFunc3", "void", JavaMethodUnit::VIRTUAL |
                                                                           JavaMethodUnit::CONST ),
         JavaClassUnit::PUBLIC
         );
     auto methodJava = QSharedPointer< JavaMethodUnit >::create( "testFunc4", "void", JavaMethodUnit::STATIC );
     methodJava->add( QSharedPointer< JavaPrintOperatorUnit >::create( R"(Hello, world!\n)" ) );
-    cSharp.add( methodJava, JavaClassUnit::PROTECTED );
+    java.add( methodJava, JavaClassUnit::PROTECTED );
     result+= java.compile();
     return result;
 }

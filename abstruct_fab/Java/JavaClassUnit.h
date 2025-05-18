@@ -10,11 +10,11 @@ class JavaClassUnit:public Unit
 public:
     enum AccessModifier
     {
-        PUBLIC,
-        PROTECTED,
-        PRIVATE,
-        FINAL,
-        ABSTRACT
+        PUBLIC=1,
+        PROTECTED=1<<1,
+        PRIVATE=1<<2,
+        FINAL=1<<3,
+        ABSTRACT=1<<4,
     };
     static const QVector< QString > ACCESS_MODIFIERS;
 

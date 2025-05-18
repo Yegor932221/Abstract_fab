@@ -27,6 +27,7 @@ HEADERS += \
     CSharp/CSharpMethodUnit.h \
     CSharp/CSharpPrintOperatorUnit.h \
     CSharp/csharpclassunit.h \
+    IAbstractFab.h \
     Java/JavaClassUnit.h \
     Java/JavaMethodUnit.h \
     Java/JavaPrintOperatorUnit.h \
