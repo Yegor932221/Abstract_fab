@@ -15,9 +15,9 @@ public:
 public:
     JavaMethodUnit( const QString& name, const QString& returnType, Flags flags );
 
-    void add( const QSharedPointer< Unit >& unit, Flags  flags  = 0 );
+    void add( const QSharedPointer< Unit >& unit, Flags  flags  = 0 ) override;
 
-    QString compile( unsigned int level = 0 ) const;
+    QString compile( unsigned int level = 0 ) const override;
 
     bool isAbstract();
 private:

@@ -15,7 +15,7 @@ public:
 
     void add( const QSharedPointer< Unit >& unit);
 
-    QString compile( unsigned int level = 0 ) const;
+    QString compile( unsigned int level = 0 ) const override;
 private:
     QString m_name;
     QString m_returnType;

@@ -16,8 +16,8 @@ public:
 
 public:
     CPlusPlusClassUnit( const QString& name, Flags flags=PRIVATE );
-    void add( const QSharedPointer< Unit >& unit, Flags flags );
-    QString compile( unsigned int level = 0 ) const;
+    void add( const QSharedPointer< Unit >& unit, Flags flags ) override;
+    QString compile( unsigned int level = 0 ) const override;
 private:
     QString m_name;
     using Fields = QVector< QSharedPointer< Unit > >;

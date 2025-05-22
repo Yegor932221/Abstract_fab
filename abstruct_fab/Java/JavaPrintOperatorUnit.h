@@ -6,7 +6,7 @@ class JavaPrintOperatorUnit:public Unit
 {
 public:
     explicit JavaPrintOperatorUnit( const QString& text );
-    QString compile( unsigned int level = 0 ) const ;
+    QString compile( unsigned int level = 0 ) const override;
 private:
     QString m_text;
 };

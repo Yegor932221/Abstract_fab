@@ -3,9 +3,9 @@
 
 const QVector< QString > CPlusPlusClassUnit::ACCESS_MODIFIERS = { "public","protected", "private" };
 
-CPlusPlusClassUnit::CPlusPlusClassUnit(  const QString& name, Flags flags ) : m_name( name ),m_modifier(flags)
+CPlusPlusClassUnit::CPlusPlusClassUnit(  const QString& name, Flags flags ) : m_name(name),m_modifier(flags)
 {
-    m_fields.resize( ACCESS_MODIFIERS.size() );
+    m_fields.resize(ACCESS_MODIFIERS.size());
 }
 
 void CPlusPlusClassUnit::add( const QSharedPointer< Unit >& unit, Flags flags )

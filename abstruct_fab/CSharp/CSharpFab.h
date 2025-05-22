@@ -5,9 +5,9 @@
 class CSharpFab:public IAbstractFab
 {
 public:
-    QSharedPointer< Unit > createClassUnit(const QString& name, const Unit::Flags modifier);
-    QSharedPointer< Unit > createMethodUnit(const QString& name, const QString& returnType, Unit::Flags flags );
-    QSharedPointer< Unit > createPrintOperatorUnit(const QString& text);
-};
+    QSharedPointer< Unit > createClassUnit(const QString& name, const Unit::Flags modifier) override;
+    QSharedPointer< Unit > createMethodUnit(const QString& name, const QString& returnType, Unit::Flags flags ) override;
+    QSharedPointer< Unit > createPrintOperatorUnit(const QString& text) override;
+} ;
 
 #endif // CSHARPFAB_H

@@ -18,8 +18,8 @@ public:
 
 public:
     JavaClassUnit( const QString& name, const Flags modifier=0 );
-    void add( const QSharedPointer< Unit >& unit, Flags flags );
-    QString compile( unsigned int level = 0 ) const;
+    void add( const QSharedPointer< Unit >& unit, Flags flags ) override;
+    QString compile( unsigned int level = 0 ) const override;
 private:
     QString m_name;
     using Fields = QVector< QSharedPointer< Unit > >;
