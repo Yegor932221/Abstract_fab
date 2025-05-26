@@ -1,31 +1,22 @@
 #ifndef GENERATEPROGRAM_H
 #define GENERATEPROGRAM_H
 
-#include<MethodUnit.h>
-#include<PrintOperatorUnit.h>
-#include<classunit.h>
 #include <QSharedPointer>
 #include"QString"
 
-QString generateProgram() {
-    ClassUnit myClass( "MyClass" );
-    myClass.add(
-        QSharedPointer< MethodUnit >::create( "testFunc1", "void", 0 ),
-        ClassUnit::PUBLIC
-        );
-    myClass.add(
-        QSharedPointer< MethodUnit >::create( "testFunc2", "void", MethodUnit::STATIC ),
-        ClassUnit::PRIVATE
-        );
-    myClass.add(
-        QSharedPointer< MethodUnit >::create( "testFunc3", "void", MethodUnit::VIRTUAL |
-                                                              MethodUnit::CONST ),
-        ClassUnit::PUBLIC
-        );
-    auto method = QSharedPointer< MethodUnit >::create( "testFunc4", "void", MethodUnit::STATIC );
-    method->add( QSharedPointer< PrintOperatorUnit >::create( R"(Hello, world!\n)" ) );
-    myClass.add( method, ClassUnit::PROTECTED );
-    return myClass.compile();
+#include"CPlusPlus/CPlusPlusFab.h"
+#include"CSharp/CSharpFab.h"
+#include"Java/JavaFab.h"
+
+#include"IAbstractFab.h"
+
+QString generateProgram( IAbstractFab &fab) {
+    auto myClass= fab.createClassUnit("MyClass",Unit::PROTECTEDINTERNAL);
+    auto method = fab.createMethodUnit("testFunc1", "void", 0);
+    myClass->add(method, Unit::PROTECTEDINTERNAL);
+    auto printMethod=fab.createPrintOperatorUnit("Hellow World!");
+    myClass->add(printMethod, Unit::PROTECTEDINTERNAL);
+    return myClass->compile();
 }
 
 #endif // GENERATEPROGRAM_H

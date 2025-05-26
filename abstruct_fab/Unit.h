@@ -6,7 +6,16 @@
 class Unit {
 public:
     using Flags = unsigned int;
-
+    enum AccessModifier
+    {
+        PUBLIC=1,
+        PROTECTED=1<<1,
+        PRIVATE=1<<2,
+        PRIVATEPROTECTED=1<<3,
+        FILE=1<<4,
+        INTERNAL=1<<5,
+        PROTECTEDINTERNAL=1<<6,
+    };
 public:
     virtual ~Unit() = default;
 
