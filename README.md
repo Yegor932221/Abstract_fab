@@ -9,6 +9,4 @@
 ![image](https://github.com/user-attachments/assets/f3a9435c-5cff-4406-a5ca-d1e5526fdb08)
 
 # UML:
-
-![Диаграмма file manager](https://github.com/user-attachments/assets/fe9caa78-3b29-4347-a7de-75138aa5d971)
-
+![AbstractFab](https://github.com/user-attachments/assets/d77d81e6-2a99-4910-b315-6001fb5babb0)
