@@ -13,8 +13,11 @@ int qMain(int argc, char *argv[])
     CSharpFab fabSharp;
     JavaFab fabJava;
     QApplication app(argc, argv);
+    std::cout<<"=========C++========"<< std::endl;
     std::cout << generateProgram(fabPlus).toStdString() << std::endl;
+    std::cout<<"=========C#========"<< std::endl;
     std::cout << generateProgram(fabSharp).toStdString() << std::endl;
+    std::cout<<"=========Java========"<< std::endl;
     std::cout << generateProgram(fabJava).toStdString() << std::endl;
     return 0;
 }
